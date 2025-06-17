@@ -1,0 +1,46 @@
+:root {
+    --text-color:#242424;
+    --highlight-warm:Coral;
+    --highlight-cool:DeepSkyBlue;
+}
+
+body {
+    background-color: ghostwhite;
+    font-family: 'Jura', 'Helvetica', monospace;
+}
+
+h1 {
+    font-size: 22px;
+    color: black;
+}
+
+p {
+    font-size: 16px;
+    color: black;
+}
+
+/* Link Style */
+
+a:link {
+    color: var(--text-color);
+    background-color: transparent;
+    text-decoration-style: dotted;
+}
+
+a:visited {
+    color: var(--text-color);
+    background-color: transparent;
+    text-decoration-style: dotted;
+}
+
+a:hover {
+    color: var(--highlight-warm);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--highlight-warm);
+    background-color: transparent;
+    text-decoration: underline;
+}
