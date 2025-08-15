@@ -7,14 +7,21 @@
 body {
     background-color: ghostwhite;
     font-family: 'Jura', 'Helvetica', monospace;
+    text-align: center;
 }
 
 .logo {
-    font-size: 40px;
+    /* font-size: 40px; */
+    padding: 0px 0px;
+    margin-bottom: 0; /* Remove any bottom spacing */
+    /* transform: translateY(4px); */
+    margin: 0 0 -4px 0;
 }
 
 hr {
+    color: black;
     max-width: 1000px;
+    margin: 0 auto; /* This removes top/bottom margins and centers it */
 }
 
 h1 {
@@ -35,17 +42,21 @@ p {
 
 nav {
     color: black;
+    padding: 0px 0px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .nav-container {
     font-weight: 1000;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-size: 18px;
-    padding: 10px 0px;
+    /* padding: 10px 0px; */
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 0;
 }
 
 .nav-links {
@@ -58,7 +69,6 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--highlight-warm);
-    transition: all 0.3s ease;
     position: relative;
     font-weight: 1000;
 }
@@ -67,24 +77,28 @@ nav {
     color: var(--highlight-warm);
 }
 
-/* Banner Section */
-.banner {
-    background: var(--gradient);
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 /* Section */
 .section {
     padding: 10px 0px;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Trail */
+.trail {
+    padding: 0px 0px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.trail-path {
+    max-width: 1000px;
 }
 
 /* Footer */
@@ -107,7 +121,8 @@ nav {
 /* Link Style */
 
 a {
-    text-decoration-style: dotted;
+    /* text-decoration-style: dotted; */
+    text-decoration: none;
     background-color: transparent;
 }
 
@@ -120,7 +135,30 @@ a:visited {
 }
 
 a:hover {
-    font-style: italic
+    font-style: italic;
+    color: var(--highlight-warm);
+}
+
+/* List Style */
+
+ol {
+    font-size: 16px;
+    color: black;
+    padding: 10px 0px;
+    max-width: 400px;
+    margin: 0 auto;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+ul {
+    font-size: 16px;
+    color: black;
+    padding: 10px 0px;
+    max-width: 400px;
+    margin: 0 0;
+    list-style-type: square;
+    list-style-position: inside;
 }
 
 /* Override the copy button appearance */
