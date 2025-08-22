@@ -56,22 +56,25 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: clamp(16px, 3.5vw, 18px); /* Responsive font size */
+    font-size: clamp(14px, 3vw, 18px); /* Smaller responsive font size */
     max-width: 800px;
     margin: 0 0;
-    flex-wrap: wrap; /* Allow wrapping on very small screens */
-    gap: 1rem; /* Add gap for wrapped items */
+    padding: 8px 0; /* Add some vertical padding */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: clamp(1rem, 4vw, 2rem); /* Responsive gap */
-    font-size: clamp(16px, 3.5vw, 18px); /* Responsive font size */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    justify-content: center; /* Center wrapped items */
+    gap: clamp(0.5rem, 2.5vw, 1.5rem); /* Smaller responsive gap */
+    font-size: clamp(14px, 3vw, 18px); /* Smaller responsive font size */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
+    flex-shrink: 1; /* Allow shrinking to fit */
+}
+
+.nav-links li {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -79,11 +82,11 @@ nav {
     color: var(--highlight-warm);
     position: relative;
     font-weight: 1000;
-    padding: 8px 4px; /* Add touch-friendly padding */
-    display: inline-block;
-    min-height: 44px; /* Minimum touch target size */
+    padding: 8px clamp(4px, 1vw, 12px); /* Responsive horizontal padding */
     display: flex;
     align-items: center;
+    min-height: 44px; /* Minimum touch target size */
+    white-space: nowrap; /* Prevent text wrapping within links */
 }
 
 .nav-links a:hover {
@@ -242,15 +245,16 @@ pre[class*="language-"] {
     }
     
     .nav-container {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 10px 0;
+        padding: 12px 0;
     }
     
     .nav-links {
-        width: 100%;
-        justify-content: center;
-        gap: 1.5rem;
+        gap: clamp(0.25rem, 1.5vw, 0.75rem); /* Tighter spacing on tablets */
+        font-size: clamp(12px, 2.5vw, 16px); /* Smaller font on tablets */
+    }
+    
+    .nav-links a {
+        padding: 6px clamp(2px, 0.5vw, 8px); /* Tighter padding */
     }
     
     h1 {
@@ -268,22 +272,48 @@ pre[class*="language-"] {
 
 /* Very small screens */
 @media screen and (max-width: 480px) {
-    .nav-links {
+    .nav-container {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 8px;
+        padding: 16px 0;
         align-items: center;
     }
     
-    .nav-links a {
-        padding: 12px 16px; /* Larger touch targets */
+    .logo {
+        margin-bottom: 8px;
+    }
+    
+    .nav-links {
         width: 100%;
-        text-align: center;
         justify-content: center;
+        gap: clamp(0.75rem, 3vw, 1rem);
+        font-size: 14px; /* Fixed readable size */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+    }
+    
+    .nav-links a {
+        padding: 10px 8px; /* Larger touch targets */
+        text-align: center;
     }
     
     ol, ul {
         max-width: 100%;
         padding-left: 20px;
         padding-right: 20px;
+    }
+}
+
+/* Extra small screens - stack navigation vertically */
+@media screen and (max-width: 360px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+    }
+    
+    .nav-links a {
+        padding: 12px 20px;
+        width: auto;
+        min-width: 120px;
     }
 }
