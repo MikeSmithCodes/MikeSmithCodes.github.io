@@ -3,24 +3,20 @@
     --highlight-warm:Coral;
     --highlight-cool:DeepSkyBlue;
 }
-
 body {
     background-color: ghostwhite;
     font-family: 'Jura', 'Helvetica', monospace;
     text-align: center;
 }
-
 .logo {
     padding: 0;
     margin: 0 0 -4px 0;
 }
-
 hr {
     color: black;
     max-width: 1000px;
     margin: 0 auto;
 }
-
 h1 {
     font-size: 22px;
     color: black;
@@ -28,7 +24,6 @@ h1 {
     max-width: 800px;
     margin: 0 auto;
 }
-
 p {
     font-size: 16px;
     color: black;
@@ -36,12 +31,25 @@ p {
     max-width: 800px;
     margin: 0 auto;
 }
-
 nav {
     color: black;
     padding: 0;
     max-width: 800px;
     margin: 0 auto;
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none; /* Hide on desktop */
+    cursor: pointer;
+    padding: 10px;
+}
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
 .nav-container {
@@ -54,37 +62,33 @@ nav {
     max-width: 800px;
     margin: 0;
 }
-
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
     font-size: 18px;
+    /* Add a transition for the slide-out effect */
+    transition: transform 0.3s ease-in-out;
 }
-
 .nav-links a {
     text-decoration: none;
     color: var(--highlight-warm);
     position: relative;
     font-weight: 1000;
 }
-
 .nav-links a:hover {
     color: var(--highlight-warm);
 }
-
 /* Section */
 .section {
     padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
 }
-
 .container {
     max-width: 600px;
     margin: 0 auto;
 }
-
 /* Trail */
 .trail {
     padding: 0;
@@ -92,12 +96,10 @@ nav {
     margin: 0 auto;
     text-align: left;
 }
-
 .trail-path {
     font-size: 8px;
     max-width: 1000px;
 }
-
 /* Footer */
 .footer {
     font-size: 18px;
@@ -107,33 +109,27 @@ nav {
     margin-top: auto;
     text-align: center;
 }
-
 .footer-container {
     padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
-
 /* Link Style */
 a {
     text-decoration: none;
     background-color: transparent;
 }
-
 a:link {
     color: var(--highlight-warm);
 }
-
 a:visited {
     color: var(--text-color);
 }
-
 a:hover {
     font-style: italic;
     color: var(--highlight-warm);
 }
-
 /* List Style */
 ol {
     font-size: 16px;
@@ -144,7 +140,6 @@ ol {
     list-style-type: square;
     list-style-position: inside;
 }
-
 ul {
     font-size: 16px;
     color: black;
@@ -154,7 +149,6 @@ ul {
     list-style-type: square;
     list-style-position: inside;
 }
-
 /* Override the copy button appearance */
 .copy-to-clipboard-button {
     background: ghostwhite !important;
@@ -164,64 +158,62 @@ ul {
     padding: 4px 8px !important;
     font-size: 16px !important;
 }
-
 .copy-to-clipboard-button:hover {
     font-style: italic !important;
 }
-
 /* Your border-radius overrides here */
 pre[class="language-"] {
     border-radius: 8px !important;
     overflow: hidden !important;
 }
-
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
-    /* Main layout adjustments for mobile */
     body {
         padding: 0 10px;
     }
-
-    h1, h3 {
-        font-size: 1.5em; /* Use relative units for better scaling */
+    h1 {
+        font-size: 18px;
     }
-
-    p {
-        font-size: 1em; /* Use relative units for better scaling */
+    p, .footer, .trail-path, ul, ol {
+        font-size: 14px;
     }
-
-    /* Navigation-specific adjustments for mobile */
     .nav-container {
-        flex-direction: column;
-        align-items: center; /* Center the logo and links */
-        justify-content: center;
-        margin: 10px 0; /* Add some space around the nav container */
+        justify-content: space-between;
+        align-items: center;
     }
-
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
     .nav-links {
-        flex-direction: column; /* Stack the links vertically */
-        gap: 0; /* Remove horizontal gap */
-        width: 100%; /* Make links take up full width */
-        margin-top: 15px; /* Add space between the logo and links */
+        position: fixed; /* Position the menu off-screen */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%; /* Adjust the width of the slide-out menu */
+        flex-direction: column;
+        background-color: ghostwhite;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        transform: translateX(-100%); /* Hide the menu off-screen to the left */
+        padding-top: 60px;
     }
-
+    .nav-links.active {
+        transform: translateX(0); /* Slide the menu into view */
+    }
     .nav-links li {
-        margin: 5px 0; /* Add vertical spacing between each link */
-        width: 100%;
-        text-align: center;
+        text-align: left;
+        padding: 15px 20px;
     }
-    
+    .nav-links a {
+        color: var(--text-color);
+        font-size: 1.2em;
+    }
     .logo {
         margin-bottom: 0;
     }
-
-    .nav-links a {
-        padding: 10px 0; /* Make the links easier to tap */
-        display: block; /* Ensure the padding applies to the whole link area */
-        border-bottom: 1px solid var(--text-color); /* Add a separator line between links */
+    .trail {
+        text-align: center;
     }
-    
-    .nav-links li:last-child a {
-        border-bottom: none; /* Remove the separator from the last link */
+    .copy-to-clipboard-button {
+        font-size: 14px !important;
     }
 }
