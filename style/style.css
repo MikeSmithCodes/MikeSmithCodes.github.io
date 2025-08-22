@@ -119,7 +119,6 @@ nav {
 a {
     text-decoration: none;
     background-color: transparent;
-    color: var(--highlight-warm);
 }
 a:link {
     color: var(--highlight-warm);
@@ -129,6 +128,11 @@ a:visited {
 }
 a:hover {
     font-style: italic;
+    color: var(--highlight-warm);
+}
+p a:link,
+p a:visited
+p a:hover {
     color: var(--highlight-warm);
 }
 /* List Style */
