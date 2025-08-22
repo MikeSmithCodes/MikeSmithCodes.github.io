@@ -211,11 +211,11 @@ pre[class="language-"] {
         color: var(--text-color);
         font-size: 1.2em;
     }
-    .logo {
+/*     .logo {
         margin-bottom: 0;
-    }
+    } */
     .trail {
-        text-align: center;
+        text-align: left;
     }
     .copy-to-clipboard-button {
         font-size: 14px !important;
