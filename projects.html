@@ -8,14 +8,65 @@
     <link rel="icon" type="image/" href="image/m.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura">
     <link rel="stylesheet" href="style/style.css">
-    <!-- Prism.js CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <!-- Prism.js plugins -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
         rel="stylesheet" />
-    <!-- Prism.js copy button -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
         rel="stylesheet" />
+
+    <style>
+        /* Basic styling for the filter controls and table */
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls label {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .filter-controls select,
+        .filter-controls input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .filter-controls button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filter-controls button:hover {
+            background-color: #0056b3;
+        }
+
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .projects-table th,
+        .projects-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .projects-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,10 +114,29 @@
 
     <section id="code" class="section">
         <div class="container">
-            <h3>All</h3>
-            <p>
-                <a href="https://mikesmith.space/projects/winston">Winston: Virtual Assistant</a>
-            </p>
+            <h3>All Projects</h3>
+            <div class="filter-controls">
+                <label for="language-filter">Language:</label>
+                <select id="language-filter">
+                    <option value="all">All</option>
+                </select>
+
+                <label for="date-filter">Date:</label>
+                <input type="date" id="date-filter">
+
+                <button id="clear-filters">Clear Filters</button>
+            </div>
+            <table class="projects-table">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Language</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="projects-table-body">
+                    </tbody>
+            </table>
         </div>
     </section>
 
@@ -85,12 +155,10 @@
         </div>
     </footer>
 
-    <!-- Auto Loader -->
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
-    <!-- Prism.js JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
@@ -100,6 +168,96 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
+    <script>
+        // Project data
+        const projects = [
+            {
+                name: "Winston: Virtual Assistant",
+                url: "https://mikesmith.space/projects/winston",
+                language: "Python",
+                date: "2024-03-15"
+            },
+            {
+                name: "E-commerce Website",
+                url: "#", // Placeholder URL
+                language: "JavaScript",
+                date: "2023-11-20"
+            },
+            {
+                name: "Weather App",
+                url: "#", // Placeholder URL
+                language: "Java",
+                date: "2024-01-05"
+            },
+            {
+                name: "Portfolio Site",
+                url: "#", // Placeholder URL
+                language: "HTML",
+                date: "2023-09-01"
+            }
+        ];
+
+        // Get DOM elements
+        const languageFilter = document.getElementById('language-filter');
+        const dateFilter = document.getElementById('date-filter');
+        const clearFiltersBtn = document.getElementById('clear-filters');
+        const tableBody = document.getElementById('projects-table-body');
+
+        // Populate language filter options
+        function populateLanguageFilter() {
+            const languages = new Set();
+            projects.forEach(project => languages.add(project.language));
+            languages.forEach(language => {
+                const option = document.createElement('option');
+                option.value = language;
+                option.textContent = language;
+                languageFilter.appendChild(option);
+            });
+        }
+
+        // Render table rows
+        function renderTable(filteredProjects) {
+            tableBody.innerHTML = ''; // Clear existing rows
+            filteredProjects.forEach(project => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><a href="${project.url}">${project.name}</a></td>
+                    <td>${project.language}</td>
+                    <td>${project.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Filter and render table
+        function filterTable() {
+            const selectedLanguage = languageFilter.value;
+            const selectedDate = dateFilter.value;
+
+            const filteredProjects = projects.filter(project => {
+                const languageMatch = selectedLanguage === 'all' || project.language === selectedLanguage;
+                const dateMatch = !selectedDate || project.date >= selectedDate;
+                return languageMatch && dateMatch;
+            });
+
+            renderTable(filteredProjects);
+        }
+
+        // Add event listeners
+        languageFilter.addEventListener('change', filterTable);
+        dateFilter.addEventListener('change', filterTable);
+        clearFiltersBtn.addEventListener('click', () => {
+            languageFilter.value = 'all';
+            dateFilter.value = '';
+            filterTable();
+        });
+
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', () => {
+            populateLanguageFilter();
+            filterTable();
+        });
+    </script>
 </body>
 
 </html>
