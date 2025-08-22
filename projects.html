@@ -30,24 +30,10 @@
             gap: 5px;
         }
 
-        .filter-controls select,
-        .filter-controls input {
+        .filter-controls select {
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
-        }
-
-        .filter-controls button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-
-        .filter-controls button:hover {
-            background-color: #0056b3;
         }
 
         .projects-table {
@@ -65,6 +51,22 @@
         .projects-table th {
             background-color: #f2f2f2;
             font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .projects-table th.sortable:hover {
+            background-color: #e0e0e0;
+        }
+
+        .projects-table th .sort-indicator {
+            margin-left: 8px;
+            font-size: 1.2em;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -116,22 +118,17 @@
         <div class="container">
             <h3>All Projects</h3>
             <div class="filter-controls">
-                <label for="language-filter">Language:</label>
+                <label for="language-filter">Filter by Language:</label>
                 <select id="language-filter">
                     <option value="all">All</option>
                 </select>
-
-                <label for="date-filter">Date:</label>
-                <input type="date" id="date-filter">
-
-                <button id="clear-filters">Clear Filters</button>
             </div>
             <table class="projects-table">
                 <thead>
                     <tr>
-                        <th>Project Name</th>
+                        <th id="sort-name" class="sortable">Project Name <span class="sort-indicator"></span></th>
                         <th>Language</th>
-                        <th>Date</th>
+                        <th id="sort-date" class="sortable">Date <span class="sort-indicator"></span></th>
                     </tr>
                 </thead>
                 <tbody id="projects-table-body">
@@ -169,15 +166,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
     <script>
-        const hamburger = document.querySelector(".hamburger-menu");
-        const navLinks = document.querySelector(".nav-links");
-
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    </script>
-
-    <script>
         // Project data
         const projects = [
             {
@@ -188,19 +176,19 @@
             },
             {
                 name: "E-commerce Website",
-                url: "#", // Placeholder URL
+                url: "#",
                 language: "JavaScript",
                 date: "2023-11-20"
             },
             {
                 name: "Weather App",
-                url: "#", // Placeholder URL
+                url: "#",
                 language: "Java",
                 date: "2024-01-05"
             },
             {
                 name: "Portfolio Site",
-                url: "#", // Placeholder URL
+                url: "#",
                 language: "HTML",
                 date: "2023-09-01"
             }
@@ -208,9 +196,14 @@
 
         // Get DOM elements
         const languageFilter = document.getElementById('language-filter');
-        const dateFilter = document.getElementById('date-filter');
-        const clearFiltersBtn = document.getElementById('clear-filters');
+        const sortNameHeader = document.getElementById('sort-name');
+        const sortDateHeader = document.getElementById('sort-date');
         const tableBody = document.getElementById('projects-table-body');
+        const allSortIndicators = document.querySelectorAll('.sort-indicator');
+
+        // State variables for sorting
+        let currentSortColumn = 'name'; // Default sort column
+        let sortDirection = 'asc'; // Default sort direction
 
         // Populate language filter options
         function populateLanguageFilter() {
@@ -224,47 +217,96 @@
             });
         }
 
-        // Render table rows
-        function renderTable(filteredProjects) {
-            tableBody.innerHTML = ''; // Clear existing rows
-            filteredProjects.forEach(project => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><a href="${project.url}">${project.name}</a></td>
-                    <td>${project.language}</td>
-                    <td>${project.date}</td>
-                `;
-                tableBody.appendChild(row);
+        // Sort projects based on current state
+        function sortProjects(filteredProjects) {
+            filteredProjects.sort((a, b) => {
+                let comparison = 0;
+                if (currentSortColumn === 'name') {
+                    comparison = a.name.localeCompare(b.name);
+                } else if (currentSortColumn === 'date') {
+                    // Dates are in YYYY-MM-DD format, so direct string comparison works
+                    comparison = a.date.localeCompare(b.date);
+                }
+
+                return sortDirection === 'asc' ? comparison : -comparison;
             });
         }
 
-        // Filter and render table
-        function filterTable() {
-            const selectedLanguage = languageFilter.value;
-            const selectedDate = dateFilter.value;
+        // Render table rows
+        function renderTable(projectsToRender) {
+            tableBody.innerHTML = ''; // Clear existing rows
+            if (projectsToRender.length === 0) {
+                const noResultsRow = document.createElement('tr');
+                noResultsRow.innerHTML = `<td colspan="3">No projects found.</td>`;
+                tableBody.appendChild(noResultsRow);
+            } else {
+                projectsToRender.forEach(project => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><a href="${project.url}">${project.name}</a></td>
+                        <td>${project.language}</td>
+                        <td>${project.date}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
 
+        // Update sort indicators on table headers
+        function updateSortIndicators() {
+            allSortIndicators.forEach(indicator => indicator.innerHTML = '');
+            const currentHeader = document.getElementById(`sort-${currentSortColumn}`);
+            if (currentHeader) {
+                const indicator = currentHeader.querySelector('.sort-indicator');
+                indicator.innerHTML = sortDirection === 'asc' ? '&#x25B2;' : '&#x25BC;';
+            }
+        }
+
+        // Main function to filter, sort, and render the table
+        function updateTable() {
+            // 1. Filter projects based on the selected language
+            const selectedLanguage = languageFilter.value;
             const filteredProjects = projects.filter(project => {
-                const languageMatch = selectedLanguage === 'all' || project.language === selectedLanguage;
-                const dateMatch = !selectedDate || project.date >= selectedDate;
-                return languageMatch && dateMatch;
+                return selectedLanguage === 'all' || project.language === selectedLanguage;
             });
 
+            // 2. Sort the filtered projects
+            sortProjects(filteredProjects);
+
+            // 3. Render the projects to the table
             renderTable(filteredProjects);
+
+            // 4. Update the visual sort indicators
+            updateSortIndicators();
         }
 
         // Add event listeners
-        languageFilter.addEventListener('change', filterTable);
-        dateFilter.addEventListener('change', filterTable);
-        clearFiltersBtn.addEventListener('click', () => {
-            languageFilter.value = 'all';
-            dateFilter.value = '';
-            filterTable();
+        languageFilter.addEventListener('change', updateTable);
+        
+        sortNameHeader.addEventListener('click', () => {
+            if (currentSortColumn === 'name') {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortColumn = 'name';
+                sortDirection = 'asc';
+            }
+            updateTable();
+        });
+
+        sortDateHeader.addEventListener('click', () => {
+            if (currentSortColumn === 'date') {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSortColumn = 'date';
+                sortDirection = 'asc';
+            }
+            updateTable();
         });
 
         // Initial setup
         document.addEventListener('DOMContentLoaded', () => {
             populateLanguageFilter();
-            filterTable();
+            updateTable();
         });
     </script>
 </body>
