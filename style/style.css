@@ -1,20 +1,17 @@
 :root {
-    --text-color: #242424;
-    --highlight-warm: Coral;
-    --highlight-cool: DeepSkyBlue;
+    --text-color:#242424;
+    --highlight-warm:Coral;
+    --highlight-cool:DeepSkyBlue;
 }
 
 body {
     background-color: ghostwhite;
     font-family: 'Jura', 'Helvetica', monospace;
     text-align: center;
-    padding: 0 16px; /* Add horizontal padding for mobile */
-    box-sizing: border-box;
 }
 
 .logo {
-    padding: 0px 0px;
-    margin-bottom: 0;
+    padding: 0;
     margin: 0 0 -4px 0;
 }
 
@@ -22,30 +19,27 @@ hr {
     color: black;
     max-width: 1000px;
     margin: 0 auto;
-    width: 100%; /* Ensure it spans full width on mobile */
 }
 
 h1 {
-    font-size: clamp(18px, 4vw, 22px); /* Responsive font size */
+    font-size: 22px;
     color: black;
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.3; /* Better readability */
 }
 
 p {
-    font-size: clamp(14px, 3.5vw, 16px); /* Responsive font size */
+    font-size: 16px;
     color: black;
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.5; /* Better readability on mobile */
 }
 
 nav {
     color: black;
-    padding: 0px 0px;
+    padding: 0;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -56,25 +50,16 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-size: clamp(14px, 3vw, 18px); /* Smaller responsive font size */
+    font-size: 18px;
     max-width: 800px;
-    margin: 0 0;
-    padding: 8px 0; /* Add some vertical padding */
+    margin: 0;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: clamp(0.5rem, 2.5vw, 1.5rem); /* Smaller responsive gap */
-    font-size: clamp(14px, 3vw, 18px); /* Smaller responsive font size */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    flex-shrink: 1; /* Allow shrinking to fit */
-}
-
-.nav-links li {
-    margin: 0;
-    padding: 0;
+    gap: 2rem;
+    font-size: 18px;
 }
 
 .nav-links a {
@@ -82,11 +67,6 @@ nav {
     color: var(--highlight-warm);
     position: relative;
     font-weight: 1000;
-    padding: 8px clamp(4px, 1vw, 12px); /* Responsive horizontal padding */
-    display: flex;
-    align-items: center;
-    min-height: 44px; /* Minimum touch target size */
-    white-space: nowrap; /* Prevent text wrapping within links */
 }
 
 .nav-links a:hover {
@@ -95,7 +75,7 @@ nav {
 
 /* Section */
 .section {
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -103,29 +83,25 @@ nav {
 .container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 16px; /* Add horizontal padding */
-    box-sizing: border-box;
 }
 
 /* Trail */
 .trail {
-    padding: 0px 0px;
+    padding: 0;
     max-width: 1000px;
     margin: 0 auto;
     text-align: left;
-    overflow-x: auto; /* Allow horizontal scroll for long paths */
 }
 
 .trail-path {
-    font-size: clamp(10px, 2vw, 8px); /* Responsive but readable font size */
+    font-size: 8px;
     max-width: 1000px;
-    white-space: nowrap; /* Prevent wrapping */
 }
 
 /* Footer */
 .footer {
-    font-size: clamp(16px, 3.5vw, 18px); /* Responsive font size */
-    padding: 20px 0px; /* Increase padding for better mobile spacing */
+    font-size: 18px;
+    padding: 10px 0;
     max-width: 800px;
     align-items: center;
     margin-top: auto;
@@ -133,7 +109,7 @@ nav {
 }
 
 .footer-container {
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -143,12 +119,6 @@ nav {
 a {
     text-decoration: none;
     background-color: transparent;
-    /* Improve touch targets */
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    padding: 4px;
-    box-sizing: border-box;
 }
 
 a:link {
@@ -164,39 +134,25 @@ a:hover {
     color: var(--highlight-warm);
 }
 
-/* Improve touch interaction on mobile */
-@media (hover: none) and (pointer: coarse) {
-    a:hover {
-        font-style: normal; /* Remove hover effects on touch devices */
-    }
-    
-    a:active {
-        font-style: italic;
-        color: var(--highlight-warm);
-    }
-}
-
 /* List Style */
 ol {
-    font-size: clamp(14px, 3.5vw, 16px); /* Responsive font size */
+    font-size: 16px;
     color: black;
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 400px;
     margin: 0 auto;
     list-style-type: square;
     list-style-position: inside;
-    text-align: left; /* Better alignment on mobile */
 }
 
 ul {
-    font-size: clamp(14px, 3.5vw, 16px); /* Responsive font size */
+    font-size: 16px;
     color: black;
-    padding: 10px 0px;
+    padding: 10px 0;
     max-width: 400px;
     margin: 0 0;
     list-style-type: square;
     list-style-position: inside;
-    text-align: left; /* Better alignment on mobile */
 }
 
 /* Override the copy button appearance */
@@ -205,115 +161,67 @@ ul {
     color: black !important;
     border: 1px solid black !important;
     border-radius: 8px !important;
-    padding: 8px 12px !important; /* Larger touch target */
-    font-size: clamp(14px, 3.5vw, 16px) !important; /* Responsive font size */
-    min-height: 44px !important; /* Touch-friendly size */
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    padding: 4px 8px !important;
+    font-size: 16px !important;
 }
 
 .copy-to-clipboard-button:hover {
     font-style: italic !important;
 }
 
-/* Touch device improvements */
-@media (hover: none) and (pointer: coarse) {
-    .copy-to-clipboard-button:hover {
-        font-style: normal !important;
-    }
-    
-    .copy-to-clipboard-button:active {
-        font-style: italic !important;
-        background: #f0f0f0 !important;
-    }
-}
-
-/* Code block improvements */
-pre[class*="language-"] {
+/* Your border-radius overrides here */
+pre[class="language-"] {
     border-radius: 8px !important;
     overflow: hidden !important;
-    overflow-x: auto !important; /* Allow horizontal scrolling on mobile */
-    max-width: 100% !important;
-    font-size: clamp(12px, 2.5vw, 14px) !important; /* Responsive code font size */
 }
 
-/* Mobile-specific improvements */
-@media screen and (max-width: 768px) {
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    /* Main layout adjustments for mobile */
     body {
-        padding: 0 12px; /* Slightly less padding on very small screens */
+        padding: 0 10px;
     }
-    
-    .nav-container {
-        padding: 12px 0;
-    }
-    
-    .nav-links {
-        gap: clamp(0.25rem, 1.5vw, 0.75rem); /* Tighter spacing on tablets */
-        font-size: clamp(12px, 2.5vw, 16px); /* Smaller font on tablets */
-    }
-    
-    .nav-links a {
-        padding: 6px clamp(2px, 0.5vw, 8px); /* Tighter padding */
-    }
-    
-    h1 {
-        padding: 15px 0; /* More breathing room */
-    }
-    
-    p {
-        padding: 12px 0; /* More breathing room */
-    }
-    
-    .container {
-        padding: 0 8px;
-    }
-}
 
-/* Very small screens */
-@media screen and (max-width: 480px) {
+    h1, h3 {
+        font-size: 1.5em; /* Use relative units for better scaling */
+    }
+
+    p {
+        font-size: 1em; /* Use relative units for better scaling */
+    }
+
+    /* Navigation-specific adjustments for mobile */
     .nav-container {
         flex-direction: column;
-        gap: 8px;
-        padding: 16px 0;
-        align-items: center;
-    }
-    
-    .logo {
-        margin-bottom: 8px;
-    }
-    
-    .nav-links {
-        width: 100%;
+        align-items: center; /* Center the logo and links */
         justify-content: center;
-        gap: clamp(0.75rem, 3vw, 1rem);
-        font-size: 14px; /* Fixed readable size */
-        flex-wrap: wrap; /* Allow wrapping if needed */
+        margin: 10px 0; /* Add some space around the nav container */
     }
-    
-    .nav-links a {
-        padding: 10px 8px; /* Larger touch targets */
+
+    .nav-links {
+        flex-direction: column; /* Stack the links vertically */
+        gap: 0; /* Remove horizontal gap */
+        width: 100%; /* Make links take up full width */
+        margin-top: 15px; /* Add space between the logo and links */
+    }
+
+    .nav-links li {
+        margin: 5px 0; /* Add vertical spacing between each link */
+        width: 100%;
         text-align: center;
     }
     
-    ol, ul {
-        max-width: 100%;
-        padding-left: 20px;
-        padding-right: 20px;
+    .logo {
+        margin-bottom: 0;
     }
-}
 
-/* Extra small screens - stack navigation vertically */
-@media screen and (max-width: 360px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
+    .nav-links a {
+        padding: 10px 0; /* Make the links easier to tap */
+        display: block; /* Ensure the padding applies to the whole link area */
+        border-bottom: 1px solid var(--text-color); /* Add a separator line between links */
     }
     
-    .nav-links a {
-        padding: 12px 20px;
-        width: auto;
-        min-width: 120px;
+    .nav-links li:last-child a {
+        border-bottom: none; /* Remove the separator from the last link */
     }
 }
