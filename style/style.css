@@ -119,12 +119,13 @@ nav {
 a {
     text-decoration: none;
     background-color: transparent;
+    color: var(--highlight-warm);
 }
 a:link {
     color: var(--highlight-warm);
 }
 a:visited {
-    color: var(--text-color);
+    color: var(--highlight-warm);
 }
 a:hover {
     font-style: italic;
