@@ -211,9 +211,9 @@ pre[class="language-"] {
         color: var(--text-color);
         font-size: 1.2em;
     }
-/*     .logo {
-        margin-bottom: 0;
-    } */
+    .logo {
+        margin: 0 0 -8px 0;
+    }
     .trail {
         text-align: left;
     }
