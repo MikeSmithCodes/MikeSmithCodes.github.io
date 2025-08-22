@@ -130,6 +130,10 @@ a:hover {
     font-style: italic;
     color: var(--highlight-warm);
 }
+/* .section a:link,
+.section a:visited {
+    color: var(--highlight-warm);
+} */
 /* List Style */
 ol {
     font-size: 16px;
