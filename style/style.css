@@ -199,6 +199,7 @@ pre[class="language-"] {
         box-shadow: 2px 0 5px rgba(0,0,0,0.5);
         transform: translateX(-100%); /* Hide the menu off-screen to the left */
         padding-top: 60px;
+        z-index: 100;
     }
     .nav-links.active {
         transform: translateX(0); /* Slide the menu into view */
