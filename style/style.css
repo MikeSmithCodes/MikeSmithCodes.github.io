@@ -192,6 +192,12 @@ pre[class="language-"] {
     .hamburger-menu {
         display: block; /* Show hamburger on mobile */
     }
+    .projects-table th .sort-indicator {
+        z-index: 1; /* Lower than navigation menu */
+    }
+    .projects-table {
+        z-index: 1;
+    }
     .nav-links {
         position: fixed; /* Position the menu off-screen */
         top: 0;
@@ -203,6 +209,7 @@ pre[class="language-"] {
         box-shadow: 2px 0 5px rgba(0,0,0,0.5);
         transform: translateX(-100%); /* Hide the menu off-screen to the left */
         padding-top: 60px;
+        z-index: 1002;
     }
     .nav-links.active {
         transform: translateX(0); /* Slide the menu into view */
