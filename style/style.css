@@ -225,9 +225,7 @@ pre[class="language-"] {
         font-size: 14px !important;
     }
     table thead {
-        position: sticky;
-/*         top: 50px; /* Matches navigation height to stick below it */
-        background-color: white; /* To ensure readability over content */ */
-        z-index: 90; /* Lower than navigation, higher than table body */
+        position: static; /* Remove sticky positioning on mobile */
+        z-index: auto;
     }
 }
