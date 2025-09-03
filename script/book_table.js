@@ -53,16 +53,19 @@ let sortDirection = 'asc'; // Default sort direction
 function sortBooks(booksToSort) {
     booksToSort.sort((a, b) => {
         let comparison = 0;
-        
+         
         switch (currentSortColumn) {
             case 'title':
             case 'author':
                 comparison = a[currentSortColumn].localeCompare(b[currentSortColumn]);
                 break;
             case 'date':
-            case 'rating':
-                // Convert string dates/ratings to numbers for correct sorting
+                // Convert string dates to numbers for correct sorting
                 comparison = parseInt(a[currentSortColumn]) - parseInt(b[currentSortColumn]);
+                break;
+            case 'rating':
+                // Compare ratings by the length of the star string
+                comparison = a.rating.length - b.rating.length;
                 break;
         }
 
