@@ -96,8 +96,10 @@ function updateSortIndicators() {
 
 // Main function to filter, sort, and render the table
 function updateTable() {
+    const filteredBooks = [...books]; // Use a copy of the books array
+    
     // 1. Sort the filtered books
-    sortBooks(books);
+    sortBooks(filteredBooks);
 
     // 2. Render the books to the table
     renderTable(filteredBooks);
