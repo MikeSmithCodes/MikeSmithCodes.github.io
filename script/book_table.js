@@ -14,25 +14,25 @@ const books = [
         title: "Internet for the People",
         author: "Ben Tarnoff",
         date: "2025",
-        rating: "4"
+        rating: "⭐⭐⭐⭐"
     },
     {
         title: "The Age of A.I. and Our Human Future",
         author: "Kissinger, Schmidt, Huttenlocher",
         date: "2025",
-        rating: "3"
+        rating: "⭐⭐⭐"
     },
     {
         title: "Plato in 90 Minutes",
         author: "Paul Strathern",
         date: "2024",
-        rating: "2"
+        rating: "⭐⭐"
     },
     {
         title: "Brain Energy",
         author: "Christopher M. Palmer",
         date: "2024",
-        rating: "3"
+        rating: "⭐⭐⭐"
     }
 ];
 
