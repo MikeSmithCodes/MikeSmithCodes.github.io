@@ -5,66 +5,58 @@ hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
-// Project data
-const projects = [
+// Book data
+const books = [
     {
-        name: "Winston: Virtual Assistant",
-        url: "https://mikesmith.space/projects/winston",
-        language: "Python",
-        date: "2024-03-15"
+        title: "Internet for the People",
+        author: "Ben Tarnoff",
+        date: "2025",
+        rating: "⭐⭐⭐⭐"
     },
     {
-        name: "E-commerce Website",
-        url: "#",
-        language: "JavaScript",
-        date: "2023-11-20"
+        title: "The Age of A.I. and Our Human Future",
+        author: "Kissinger, Schmidt, Huttenlocher",
+        date: "2025",
+        rating: "⭐⭐⭐"
     },
     {
-        name: "Weather App",
-        url: "#",
-        language: "Java",
-        date: "2024-01-05"
+        title: "Plato in 90 Minutes",
+        author: "Paul Strathern",
+        date: "2024",
+        rating: "⭐⭐"
     },
     {
-        name: "Portfolio Site",
-        url: "#",
-        language: "HTML",
-        date: "2023-09-01"
+        title: "Brain Energy",
+        author: "Christopher M. Palmer",
+        date: "2024",
+        rating: "⭐⭐⭐"
     }
 ];
 
 // Get DOM elements
-const languageFilter = document.getElementById('language-filter');
-const sortNameHeader = document.getElementById('sort-name');
+const sortTitleHeader = document.getElementById('sort-title');
+const sortAuthorHeader = document.getElementById('sort-author');
 const sortDateHeader = document.getElementById('sort-date');
-const tableBody = document.getElementById('projects-table-body');
+const sortRatingrHeader = document.getElementById('sort-rating');
+const tableBody = document.getElementById('books-table-body');
 const allSortIndicators = document.querySelectorAll('.sort-indicator');
 
 // State variables for sorting
-let currentSortColumn = 'name'; // Default sort column
+let currentSortColumn = 'title'; // Default sort column
 let sortDirection = 'asc'; // Default sort direction
 
-// Populate language filter options
-function populateLanguageFilter() {
-    const languages = new Set();
-    projects.forEach(project => languages.add(project.language));
-    languages.forEach(language => {
-        const option = document.createElement('option');
-        option.value = language;
-        option.textContent = language;
-        languageFilter.appendChild(option);
-    });
-}
-
-// Sort projects based on current state
-function sortProjects(filteredProjects) {
-    filteredProjects.sort((a, b) => {
+// Sort books based on current state
+function sortBooks(filteredBooks) {
+    filteredBooks.sort((a, b) => {
         let comparison = 0;
-        if (currentSortColumn === 'name') {
-            comparison = a.name.localeCompare(b.name);
+        if (currentSortColumn === 'title') {
+            comparison = a.title.localeCompare(b.title);
+        } else if (currentSortColumn === 'author') {
+            comparison = a.author.localeCompare(b.author);
         } else if (currentSortColumn === 'date') {
-            // Dates are in YYYY-MM-DD format, so direct string comparison works
             comparison = a.date.localeCompare(b.date);
+        } else if (currentSortColumn === 'rating') {
+            comparison = a.rating.localeCompare(b.rating);
         }
 
         return sortDirection === 'asc' ? comparison : -comparison;
@@ -72,19 +64,19 @@ function sortProjects(filteredProjects) {
 }
 
 // Render table rows
-function renderTable(projectsToRender) {
+function renderTable(booksToRender) {
     tableBody.innerHTML = ''; // Clear existing rows
-    if (projectsToRender.length === 0) {
+    if (booksToRender.length === 0) {
         const noResultsRow = document.createElement('tr');
-        noResultsRow.innerHTML = `<td colspan="3">No projects found.</td>`;
+        noResultsRow.innerHTML = `<td colspan="3">No books found.</td>`;
         tableBody.appendChild(noResultsRow);
     } else {
-        projectsToRender.forEach(project => {
+        booksToRender.forEach(book => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><a href="${project.url}">${project.name}</a></td>
-                <td>${project.language}</td>
-                <td>${project.date}</td>
+                <td><a href="${book.url}">${book.name}</a></td>
+                <td>${book.language}</td>
+                <td>${book.date}</td>
             `;
             tableBody.appendChild(row);
         });
@@ -103,30 +95,31 @@ function updateSortIndicators() {
 
 // Main function to filter, sort, and render the table
 function updateTable() {
-    // 1. Filter projects based on the selected language
-    const selectedLanguage = languageFilter.value;
-    const filteredProjects = projects.filter(project => {
-        return selectedLanguage === 'all' || project.language === selectedLanguage;
-    });
+    // 1. Sort the filtered books
+    sortBooks(filteredBooks);
 
-    // 2. Sort the filtered projects
-    sortProjects(filteredProjects);
+    // 2. Render the books to the table
+    renderTable(filteredBooks);
 
-    // 3. Render the projects to the table
-    renderTable(filteredProjects);
-
-    // 4. Update the visual sort indicators
+    // 3. Update the visual sort indicators
     updateSortIndicators();
 }
 
-// Add event listeners
-languageFilter.addEventListener('change', updateTable);
-
-sortNameHeader.addEventListener('click', () => {
-    if (currentSortColumn === 'name') {
+sortTitleHeader.addEventListener('click', () => {
+    if (currentSortColumn === 'title') {
         sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
     } else {
-        currentSortColumn = 'name';
+        currentSortColumn = 'title';
+        sortDirection = 'asc';
+    }
+    updateTable();
+});
+
+sortAuthorHeader.addEventListener('click', () => {
+    if (currentSortColumn === 'author') {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSortColumn = 'author';
         sortDirection = 'asc';
     }
     updateTable();
@@ -142,8 +135,17 @@ sortDateHeader.addEventListener('click', () => {
     updateTable();
 });
 
+sortRatingHeader.addEventListener('click', () => {
+    if (currentSortColumn === 'rating') {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSortColumn = 'rating';
+        sortDirection = 'asc';
+    }
+    updateTable();
+});
+
 // Initial setup
 document.addEventListener('DOMContentLoaded', () => {
-    populateLanguageFilter();
     updateTable();
 });
