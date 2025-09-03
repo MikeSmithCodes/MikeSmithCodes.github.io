@@ -74,9 +74,10 @@ function renderTable(booksToRender) {
         booksToRender.forEach(book => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><a href="${book.url}">${book.name}</a></td>
-                <td>${book.language}</td>
+                <td>${book.title}</td>
+                <td>${book.author}</td>
                 <td>${book.date}</td>
+                <td>${book.rating}</td>
             `;
             tableBody.appendChild(row);
         });
