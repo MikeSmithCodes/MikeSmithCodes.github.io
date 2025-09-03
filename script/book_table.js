@@ -96,7 +96,7 @@ function updateSortIndicators() {
 // Main function to filter, sort, and render the table
 function updateTable() {
     // 1. Sort the filtered books
-    sortBooks(filteredBooks);
+    sortBooks(books);
 
     // 2. Render the books to the table
     renderTable(filteredBooks);
