@@ -75,222 +75,226 @@ const books = [
         author: "Brian P. Cleary",
         date: "2025-07",
         rating: "⭐⭐"
+    },
+    {
+        title: "The Driving Machine",
+        author: "Witold Rybczynski",
+        date: "2025-06",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "Futureproof",
+        author: "Kevin Roose",
+        date: "2025-06",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "Walden and On the Duty of Civil Disobedience",
+        author: "Henry David Thoreau",
+        date: "2025-05",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "No Rules Rules",
+        author: "Reed Hastings, Erin Meyer",
+        date: "2025-05",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Radical Candor",
+        author: "Kim Scott",
+        date: "2025-05",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "The Anxious Generation",
+        author: "Jonathan Haidt",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Homo Deus",
+        author: "Yuval Noah Harari",
+        date: "2025-05",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Nexus",
+        author: "Yuval Noah Harari",
+        date: "2025-06",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "21 Lessons for the 21st Century",
+        author: "Yuval Noah Harari",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Quantum Supremacy",
+        author: "Michio Kaku",
+        date: "2025-04",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "When",
+        author: "Daniel H. Pink",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Dopamine Nation",
+        author: "Anna Lembke",
+        date: "2025-04",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "Brief Answers to the Big Questions",
+        author: "Stephen Hawking",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "The Order of Time",
+        author: "Carlo Rovelli",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Orbital",
+        author: "Samantha Harvey",
+        date: "2025-04",
+        rating: "⭐⭐"
+    },
+    {
+        title: "Die With Zero",
+        author: "Bill Perkins",
+        date: "2025-04",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Gut Check",
+        author: "Steven R. Gundry, MD",
+        date: "2025-03",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "Careless People",
+        author: "Sarah Wynn-Williams",
+        date: "2025-03",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "How to Be Perfect",
+        author: "Michael Schur",
+        date: "2025-03",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Einstein",
+        author: "Walter Isaacson",
+        date: "2025-03",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "The Status Game",
+        author: "Will Storr",
+        date: "2025-03",
+        rating: "⭐⭐"
+    },
+    {
+        title: "Ingredients",
+        author: "George Zaidan",
+        date: "2025-02",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Raising Girls Who Like Themselves",
+        author: "Kasey Edwards, Christopher Scanlon",
+        date: "2025-02",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "How to Avoid a Climate Disaster",
+        author: "Bill Gates",
+        date: "2025-02",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "The Body",
+        author: "Bill Bryson",
+        date: "2025-02",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Glucose Revolution",
+        author: "Jessie Inchauspe",
+        date: "2025-02",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "The Making of Another Major Motion Picture Masterpiece",
+        author: "Tom Hanks",
+        date: "2025-02",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "The Woman in Me",
+        author: "Britney Spears",
+        date: "2025-02",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "Good to Great"",
+        author: "Jim Collins",
+        date: "2025-01",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Make Your Bed",
+        author: "Admiral William H. McRaven",
+        date: "2025-01",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Leonardo da Vinci",
+        author: "Walter Isaacson",
+        date: "2025-01",
+        rating: "⭐⭐⭐⭐⭐"
+    },
+    {
+        title: "Nietzsche in 90 Minutes",
+        author: "Paul Strathern",
+        date: "2025-01",
+        rating: "⭐⭐⭐"
+    },
+    {
+        title: "The Trump Tapes",
+        author: "Bob Woodward",
+        date: "2024-12",
+        rating: "⭐⭐⭐⭐"
+    },
+    {
+        title: "Plato in 90 Minutes",
+        author: "Paul Strathern",
+        date: "2024-12",
+        rating: "⭐⭐"
+    },
+    {
+        title: "Brain Energy",
+        author: "Christopher M. Palmer",
+        date: "2024-12",
+        rating: "⭐⭐⭐"
     }
-    // },
-    // {
-    //     title: "The Driving Machine",
-    //     author: "Witold Rybczynski",
-    //     date: "2025-06",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "Futureproof",
-    //     author: "Kevin Roose",
-    //     date: "2025-06",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "Walden and On the Duty of Civil Disobedience",
-    //     author: "Henry David Thoreau",
-    //     date: "2025-05",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "No Rules Rules",
-    //     author: "Reed Hastings, Erin Meyer",
-    //     date: "2025-05",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Radical Candor",
-    //     author: "Kim Scott",
-    //     date: "2025-05",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Anxious Generation",
-    //     author: "Jonathan Haidt",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Homo Deus",
-    //     author: "Yuval Noah Harari",
-    //     date: "2025-05",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Nexus",
-    //     author: "Yuval Noah Harari",
-    //     date: "2025-06",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "21 Lessons for the 21st Century",
-    //     author: "Yuval Noah Harari",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Quantum Supremacy",
-    //     author: "Michio Kaku",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "When",
-    //     author: "Daniel H. Pink",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Dopamine Nation",
-    //     author: "Anna Lembke",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "Brief Answers to the Big Questions",
-    //     author: "Stephen Hawking",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Order of Time",
-    //     author: "Carlo Rovelli",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Orbital",
-    //     author: "Samantha Harvey",
-    //     date: "2025-04",
-    //     rating: "⭐⭐"
-    // },
-    // {
-    //     title: "Die With Zero",
-    //     author: "Bill Perkins",
-    //     date: "2025-04",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Gut Check",
-    //     author: "Steven R. Gundry, MD",
-    //     date: "2025-03",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "Careless People",
-    //     author: "Sarah Wynn-Williams",
-    //     date: "2025-03",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "How to Be Perfect",
-    //     author: "Michael Schur",
-    //     date: "2025-03",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Einstein",
-    //     author: "Walter Isaacson",
-    //     date: "2025-03",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Status Game",
-    //     author: "Will Storr",
-    //     date: "2025-03",
-    //     rating: "⭐⭐"
-    // },
-    // {
-    //     title: "Ingredients",
-    //     author: "George Zaidan",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Raising Girls Who Like Themselves",
-    //     author: "Kasey Edwards, Christopher Scanlon",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "How to Avoid a Climate Disaster",
-    //     author: "Bill Gates",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Body",
-    //     author: "Bill Bryson",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Glucose Revolution",
-    //     author: "Jessie Inchauspe",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Making of Another Major Motion Picture Masterpiece",
-    //     author: "Tom Hanks",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Woman in Me",
-    //     author: "Britney Spears",
-    //     date: "2025-02",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "Good to Great"",
-    //     author: "Jim Collins",
-    //     date: "2025-01",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Make Your Bed",
-    //     author: "Admiral William H. McRaven",
-    //     date: "2025-01",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Leonardo da Vinci",
-    //     author: "Walter Isaacson",
-    //     date: "2025-01",
-    //     rating: "⭐⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Nietzsche in 90 Minutes",
-    //     author: "Paul Strathern",
-    //     date: "2025-01",
-    //     rating: "⭐⭐⭐"
-    // },
-    // {
-    //     title: "The Trump Tapes",
-    //     author: "Bob Woodward",
-    //     date: "2024-12",
-    //     rating: "⭐⭐⭐⭐"
-    // },
-    // {
-    //     title: "Plato in 90 Minutes",
-    //     author: "Paul Strathern",
-    //     date: "2024-12",
-    //     rating: "⭐⭐"
-    // },
-    // {
-    //     title: "Brain Energy",
-    //     author: "Christopher M. Palmer",
-    //     date: "2024-12",
-    //     rating: "⭐⭐⭐"
-    // }
 ];
 
-// Get DOM elements for sorting and rendering
+// Pagination state variables
+const booksPerPage = 10;
+let currentPage = 1;
+
+// Get DOM elements for sorting, rendering, and pagination
 const tableBody = document.getElementById('books-table-body');
+const paginationControls = document.getElementById('pagination-controls');
 const allSortIndicators = document.querySelectorAll('.sort-indicator');
 const sortableHeaders = document.querySelectorAll('[data-sort-by]'); // Using data attributes
 
@@ -306,7 +310,7 @@ let sortDirection = 'asc'; // Default sort direction
 function sortBooks(booksToSort) {
     booksToSort.sort((a, b) => {
         let comparison = 0;
-         
+          
         switch (currentSortColumn) {
             case 'title':
             case 'author':
@@ -354,6 +358,26 @@ function renderTable(booksToRender) {
 }
 
 /**
+ * Renders the pagination buttons based on the total number of books and books per page.
+ */
+function renderPaginationControls() {
+    paginationControls.innerHTML = ''; // Clear existing controls
+
+    const totalPages = Math.ceil(books.length / booksPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.classList.add('page-btn');
+        if (i === currentPage) {
+            pageButton.classList.add('active'); // Highlight the current page
+        }
+        pageButton.dataset.page = i;
+        paginationControls.appendChild(pageButton);
+    }
+}
+
+/**
  * Updates the visual sort indicators (up or down arrows) in the table headers
  * based on the current sort state.
  */
@@ -372,17 +396,25 @@ function updateSortIndicators() {
  * This is the core logic that is called whenever the table needs to be updated.
  */
 function updateTable() {
-    // FIX: A copy of the original books array is used to prevent mutation.
+    // A copy of the original books array is used to prevent mutation.
     const booksToDisplay = [...books];
 
     // 1. Sort the books
     sortBooks(booksToDisplay);
 
-    // 2. Render the books to the table
-    renderTable(booksToDisplay);
+    // 2. Paginate the books
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const paginatedBooks = booksToDisplay.slice(startIndex, endIndex);
 
-    // 3. Update the visual sort indicators
+    // 3. Render the paginated books to the table
+    renderTable(paginatedBooks);
+
+    // 4. Update the visual sort indicators
     updateSortIndicators();
+
+    // 5. Render the pagination controls
+    renderPaginationControls();
 }
 
 // Attach a single event listener to all sortable headers using data attributes.
@@ -398,8 +430,18 @@ sortableHeaders.forEach(header => {
             currentSortColumn = sortColumn;
             sortDirection = 'asc';
         }
+        // When a new sort is applied, reset to the first page
+        currentPage = 1; 
         updateTable();
     });
+});
+
+// Attach event listener for pagination clicks using event delegation
+paginationControls.addEventListener('click', (event) => {
+    if (event.target.classList.contains('page-btn')) {
+        currentPage = parseInt(event.target.dataset.page);
+        updateTable();
+    }
 });
 
 // Initial setup to render the table when the page loads
