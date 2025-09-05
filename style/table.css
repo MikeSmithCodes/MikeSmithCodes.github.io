@@ -16,7 +16,7 @@
 .filter-controls select {
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid var(--highlight-cool);
+    border: 1px solid #242424;
 }
 
 .projects-table {
@@ -28,18 +28,18 @@
 .projects-table td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid var(--highlight-cool);
+    border-bottom: 1px solid #b5b5b5;
 }
 
 .projects-table th {
-    background-color: var(--highlight-cool);
+    background-color: #b5b5b5;
     font-weight: bold;
     cursor: pointer;
     position: relative;
 }
 
 .projects-table th.sortable:hover {
-    background-color: var(--highlight-cool);
+    background-color: #b5b5b5;
 }
 
 .projects-table th .sort-indicator {
